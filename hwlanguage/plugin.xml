@@ -46,7 +46,7 @@
 		name="%NewProjectWizard.name"
 		icon="icons/sample.gif"
 		category="de.fhflensburg.hwlanguage.wizardcategory"
-		class="de.fhflensburg.hwlanguage.projectwizard.ProjectWizard"
+		class="de.fhflensburg.hwlanguage.projectwizard.ProjectWizard" 
 		project="true"
 		finalPerspective="de.fhflensburg.hwlanguage.perspective"
 		id="de.fhflensburg.hwlanguage.new.hwlangproject">
@@ -56,4 +56,31 @@
 	</wizard>
    </extension>
 
+   <extension point="org.eclipse.ui.propertyPages">
+      <page id="HWLProjectProperties"
+            name="HWL Properties"
+            objectClass="org.eclipse.core.resources.IProject"
+            class="de.fhflensburg.hwlanguage.project.PropertiesPage">
+         <filter name="projectNature"
+                 value="de.fhflensburg.hwlanguage.nature">
+         </filter>
+      </page>
+   </extension>
+
+   <extension point="org.eclipse.core.resources.natures"
+              id="nature"
+              name="HWL Nature">
+      <runtime>
+         <run class="de.fhflensburg.hwlanguage.project.Nature"/>
+      </runtime>
+   </extension> 
+   <extension point="org.eclipse.core.resources.builders"
+	          id="builder"
+    	      name="HWL Builder">
+      <builder>
+         <run
+               class="de.fhflensburg.hwlanguage.project.IncrementalBuilder">
+         </run>
+      </builder>
+   </extension>
 </plugin>

@@ -9,7 +9,7 @@ import java.util.ResourceBundle;
  */
 public class MessageUtil {
 
-	private static final String RESOURCE_BUNDLE= "de.fhflensburg.hwlanguage.messages";//$NON-NLS-1$
+	private static final String RESOURCE_BUNDLE= "messages";//$NON-NLS-1$
 
 	private static ResourceBundle fgResourceBundle= ResourceBundle.getBundle(RESOURCE_BUNDLE);
 
