@@ -11,16 +11,17 @@
          <export name="*"/>
       </library>
       <library name="lib/mathml.jar"/>
-      <library name="lib/xalan.jar"/>
-      <library name="lib/xerces_1_4_3.jar"/>
       <library name="lib/GIFOutputStream.jar"/>
+      <library name="lib/xercesImpl.jar"/>
+      <library name="lib/xml-apis.jar"/>
+      <library name="lib/xmlParserAPIs.jar"/>
    </runtime>
    <requires>
       <import plugin="org.eclipse.core.resources"/>
       <import plugin="org.eclipse.ui"/>
    </requires>
-   
-   
+
+
    <extension
          point="org.eclipse.ui.perspectives">
       <perspective
@@ -30,61 +31,70 @@
             id="de.fhflensburg.hwlanguage.perspective">
       </perspective>
    </extension>
-   
    <extension
-      point = "org.eclipse.ui.newWizards">
-	<category
-	   id = "de.fhflensburg.hwlanguage.wizardcategory"
-	   name="%NewWizard.category">
-	</category>
- 	<wizard
-		id = "de.fhflensburg.hwlanguage.new.hwlangfile"
-		name = "%NewFileWizard.name"
-		class="de.fhflensburg.hwlanguage.filewizard.FileWizard"
-		category="de.fhflensburg.hwlanguage.wizardcategory"
-		icon="icons/sample.gif">
-    	   <description>%NewFileWizard.desc</description>
-	   <selection class="org.eclipse.core.resources.IResource"/>
-	</wizard>
-	<wizard
-		name="%NewProjectWizard.name"
-		icon="icons/sample.gif"
-		category="de.fhflensburg.hwlanguage.wizardcategory"
-		class="de.fhflensburg.hwlanguage.projectwizard.ProjectWizard" 
-		project="true"
-		finalPerspective="de.fhflensburg.hwlanguage.perspective"
-		id="de.fhflensburg.hwlanguage.new.hwlangproject">
-		<description>
-		    %NewProjectWizard.desc
-		</description>
-	</wizard>
+         point="org.eclipse.ui.newWizards">
+      <category
+            name="%NewWizard.category"
+            id="de.fhflensburg.hwlanguage.wizardcategory">
+      </category>
+      <wizard
+            name="%NewFileWizard.name"
+            icon="icons/sample.gif"
+            category="de.fhflensburg.hwlanguage.wizardcategory"
+            class="de.fhflensburg.hwlanguage.filewizard.FileWizard"
+            id="de.fhflensburg.hwlanguage.new.hwlangfile">
+         <description>
+            %NewFileWizard.desc
+         </description>
+         <selection
+               class="org.eclipse.core.resources.IResource">
+         </selection>
+      </wizard>
+      <wizard
+            name="%NewProjectWizard.name"
+            icon="icons/sample.gif"
+            category="de.fhflensburg.hwlanguage.wizardcategory"
+            class="de.fhflensburg.hwlanguage.projectwizard.ProjectWizard"
+            project="true"
+            finalPerspective="de.fhflensburg.hwlanguage.perspective"
+            id="de.fhflensburg.hwlanguage.new.hwlangproject">
+         <description>
+            %NewProjectWizard.desc
+         </description>
+      </wizard>
    </extension>
-
-   <extension point="org.eclipse.ui.propertyPages">
-      <page id="HWLProjectProperties"
-            name="HWL Properties"
+   <extension
+         point="org.eclipse.ui.propertyPages">
+      <page
             objectClass="org.eclipse.core.resources.IProject"
-            class="de.fhflensburg.hwlanguage.project.PropertiesPage">
-         <filter name="projectNature"
-                 value="de.fhflensburg.hwlanguage.nature">
+            name="HWL Properties"
+            class="de.fhflensburg.hwlanguage.project.PropertiesPage"
+            id="HWLProjectProperties">
+         <filter
+               name="projectNature"
+               value="de.fhflensburg.hwlanguage.nature">
          </filter>
       </page>
    </extension>
-
-   <extension point="org.eclipse.core.resources.natures"
-              id="nature"
-              name="HWL Nature">
+   <extension
+         id="nature"
+         name="HWL Nature"
+         point="org.eclipse.core.resources.natures">
       <runtime>
-         <run class="de.fhflensburg.hwlanguage.project.Nature"/>
+         <run
+               class="de.fhflensburg.hwlanguage.project.Nature">
+         </run>
       </runtime>
-   </extension> 
-   <extension point="org.eclipse.core.resources.builders"
-	          id="builder"
-    	      name="HWL Builder">
+   </extension>
+   <extension
+         id="builder"
+         name="HWL Builder"
+         point="org.eclipse.core.resources.builders">
       <builder>
          <run
                class="de.fhflensburg.hwlanguage.project.build.IncrementalBuilder">
          </run>
       </builder>
    </extension>
+
 </plugin>

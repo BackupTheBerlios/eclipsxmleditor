@@ -39,8 +39,8 @@ public class FileCreationPage extends WizardNewFileCreationPage {
 		IWorkbench workbench,
 		IStructuredSelection selection) {
 		super("createHWLFilePage", selection); //$NON-NLS-1$
-		this.setTitle(MessageUtil.getString("Create_HWL_File")); //$NON-NLS-1$
-		this.setDescription(MessageUtil.getString("Create_HWL_File_description")); //$NON-NLS-1$
+		this.setTitle(MessageUtil.getString("NewFileWizard.name")); //$NON-NLS-1$
+		this.setDescription(MessageUtil.getString("NewFileWizard.desc")); //$NON-NLS-1$
 		this.workbench = workbench;
 	}
 	/** (non-Javadoc)
@@ -51,7 +51,7 @@ public class FileCreationPage extends WizardNewFileCreationPage {
 		Composite composite = (Composite)getControl();
 		//		open file for editing checkbox
 		openFileCheckbox = new Button(composite, SWT.CHECK);
-		openFileCheckbox.setText(MessageUtil.getString("Open_file_for_editing_when_done")); //$NON-NLS-1$
+		openFileCheckbox.setText(MessageUtil.getString("NewFileWizard.openFile")); //$NON-NLS-1$
 		openFileCheckbox.setSelection(true);
 		this.setFileName("*.xml");
 	}
@@ -98,7 +98,7 @@ public class FileCreationPage extends WizardNewFileCreationPage {
 	 * Method declared on WizardNewFileCreationPage.
 	 */
 	protected String getNewFileLabel() {
-		return MessageUtil.getString("NewHWLFile"); //$NON-NLS-1$
+		return MessageUtil.getString("NewFileWizard.fileName"); //$NON-NLS-1$
 	}
 	
 	

@@ -30,7 +30,7 @@ public class HwLanguagePlugin extends AbstractUIPlugin {
 	/**
 	 * Returns the shared instance.
 	 */
-	public static HwLanguagePlugin getDefault() {
+	public static HwLanguagePlugin getPlugIn() {
 		return plugin;
 	}
 
@@ -46,7 +46,7 @@ public class HwLanguagePlugin extends AbstractUIPlugin {
 	 * or 'key' if not found.
 	 */
 	public static String getResourceString(String key) {
-		ResourceBundle bundle= HwLanguagePlugin.getDefault().getResourceBundle();
+		ResourceBundle bundle= HwLanguagePlugin.getPlugIn().getResourceBundle();
 		try {
 			return (bundle!=null ? bundle.getString(key) : key);
 		} catch (MissingResourceException e) {
