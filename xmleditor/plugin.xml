@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin
+   id="de.fhflensburg.xmleditor"
+   name="xmleditor Plug-in"
+   version="1.0.0"
+   provider-name=""
+   class="de.fhflensburg.xmleditor.xmleditorPlugin">
+
+   <runtime>
+      <library name="xmleditor.jar">
+         <export name="*"/>
+      </library>
+   </runtime>
+   <requires>
+      <import plugin="org.eclipse.core.resources"/>
+      <import plugin="org.eclipse.ui"/>
+   </requires>
+
+
+   <extension
+         point="org.eclipse.ui.editors">
+      <editor
+            name="Sample XML Editor"
+            extensions="xml"
+            icon="icons/sample.gif"
+            contributorClass="org.eclipse.ui.texteditor.BasicTextEditorActionContributor"
+            class="de.fhflensburg.xmleditor.editor.XMLEditor"
+            id="de.fhflensburg.xmleditor.editor.XMLEditor">
+      </editor>
+   </extension>
+
+</plugin>

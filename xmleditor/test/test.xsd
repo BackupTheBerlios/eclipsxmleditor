@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+	<xs:complexType name="cityType">
+		<xs:simpleContent>
+			<xs:extension base="xs:string">
+				<xs:attribute name="country" type="xs:string" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:element name="document">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element ref="person" maxOccurs="unbounded"/>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+	<xs:element name="name" type="xs:string"/>
+	<xs:element name="person" type="personType"/>
+	<xs:complexType name="personType">
+		<xs:sequence>
+			<xs:element ref="name"/>
+			<xs:element ref="street"/>
+			<xs:element name="city" type="cityType"/>
+		</xs:sequence>
+		<xs:attribute name="gender" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:element name="street" type="xs:string"/>
+</xs:schema>
