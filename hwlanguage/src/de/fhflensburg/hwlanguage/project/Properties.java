@@ -46,7 +46,7 @@ public class Properties {
 	}
 
 	public String getStylesheet() throws CoreException {
-		return getProperty(XSL_PROPERTY_NAME, Constants.DEFAULT_XSL_DIR);
+		return getProperty(XSL_PROPERTY_NAME, Constants.DEFAULT_XSL_FILE);
 	}
 
 	public String getOutput() throws CoreException {
@@ -66,7 +66,7 @@ public class Properties {
 	}
 
 	public void setStylesheet(String rules) throws CoreException {
-		setProperty(XSL_PROPERTY_NAME, rules, Constants.DEFAULT_XSL_DIR);
+		setProperty(XSL_PROPERTY_NAME, rules, Constants.DEFAULT_XSL_FILE);
 	}
 
 	public void setOutput(String output) throws CoreException {

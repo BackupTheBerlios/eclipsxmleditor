@@ -21,8 +21,13 @@ public class Constants {
 	
 	public static final String DEFAULT_INPUT_DIR = "src";
 	public static final String DEFAULT_XSL_DIR = "xslt";
+	public static final String DEFAULT_XSL_FILE = DEFAULT_XSL_DIR+"/default.xsl";
 	public static final String DEFAULT_OUTPUT_DIR = "output";
 	public static final String XSL_FILE_EXTENSION = "xsl";
 	public static final String HWL_FILE_EXTENSION = "xml";
+	public static final String MATH_ML_TAGNAME = "math";
 	public static final String DEFAULT_FILEEXTENSION ="html";
+	public static final int MATH_ML_FONTSIZE = 14;
+	public static final String MATH_ML_IMAGEPATH = "/mathmlImages";
+	public static final String IMAGE_TAGNAME = "image";
 }

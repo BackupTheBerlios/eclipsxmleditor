@@ -1,29 +1,170 @@
 <?xml version="1.0"?>
-<!-- this is a sample XML document, created by XM Eclipse Plugin, see ananas.org/xm -->
-<db:article xmlns:db="http://ananas.org/2002/docbook/subset">
-  <db:articleinfo>
-	 <db:title>XM Sample Site</db:title>
-	 <db:copyright>
-		<db:year>2002</db:year>
-		<db:holder><db:ulink url="http://www.marchal.com/">Beno&#x00ee;t Marchal</db:ulink></db:holder>
-	 </db:copyright>
-  </db:articleinfo>
-  <db:sect1>
-     <db:sect1info>
-        <db:title>Why do I see this?</db:title>
-     </db:sect1info>
-     <db:simpara>This is a sample site created by the XM plugin for Eclipse. You will need to replace
-        it by your own documents.</db:simpara>
-     <db:simpara>If you think this message is in error, please contact the webmaster of this site
-        (address usually is webmaster@domain). Do not contact the author of XM as we could not help you.</db:simpara>
-  </db:sect1>
-  <db:sect1>
-     <db:sect1info>
-        <db:title>What is this XM thing?</db:title>
-     </db:sect1info>
-     <db:simpara>XM is a simple and affordable content publishing solution based on XML and XSLT.
-        It was originally developped by <db:ulink url="http://www.marchal.com">Beno&#x00ee;t Marchal</db:ulink> 
-        for the "Working XML" column on <db:ulink url="http://www.ibm.com/developerWorks">IBM developerWorks</db:ulink>.</db:simpara>
-     <db:simpara>XM was released as <db:ulink url="http://www.ananas.org/xm">open-source</db:ulink>.</db:simpara>
-  </db:sect1>
-</db:article>
+<article>
+	<articleinfo>
+		<title>HWL Sample Site</title>
+	</articleinfo>
+	<sect1>
+		<sect1info>
+			<title>A Formular</title>
+		</sect1info>
+		<simpara>
+			<math xmlns="http://www.w3.org/1998/Math/MathML">
+				<mrow>
+					<mi>x</mi>
+					<mo>=</mo>
+					<mrow>
+						<mo>(</mo>
+						<mtable>
+							<mtr>
+								<mtd columnalign="center">
+									<mrow>
+										<mrow>
+											<mo>{</mo>
+											<mtable>
+												<mtr>
+													<mtd columnalign="center">
+														<mrow>
+															<msub>
+																<mi>x</mi>
+																<mrow>
+																	<mn>11</mn>
+																</mrow>
+															</msub>
+														</mrow>
+													</mtd>
+													<mtd columnalign="center">
+														<mrow>
+															<msub>
+																<mi>x</mi>
+																<mrow>
+																	<mn>12</mn>
+																</mrow>
+															</msub>
+														</mrow>
+													</mtd>
+												</mtr>
+												<mtr>
+													<mtd columnalign="center">
+														<mrow>
+															<msub>
+																<mi>x</mi>
+																<mrow>
+																	<mn>21</mn>
+																</mrow>
+															</msub>
+														</mrow>
+													</mtd>
+													<mtd columnalign="center">
+														<mrow>
+															<msub>
+																<mi>x</mi>
+																<mrow>
+																	<mn>22</mn>
+																</mrow>
+															</msub>
+														</mrow>
+													</mtd>
+												</mtr>
+												<mtr>
+													<mtd columnalign="center">
+														<mrow>
+															<msub>
+																<mi>y</mi>
+																<mrow>
+																	<mn>1</mn>
+																</mrow>
+															</msub>
+														</mrow>
+													</mtd>
+													<mtd columnalign="center">
+														<mrow>
+															<msub>
+																<mi>y</mi>
+																<mrow>
+																	<mn>2</mn>
+																</mrow>
+															</msub>
+														</mrow>
+													</mtd>
+												</mtr>
+											</mtable>
+											<mo>}</mo>
+										</mrow>
+									</mrow>
+								</mtd>
+							</mtr>
+							<mtr>
+								<mtd columnalign="center">
+									<mrow>
+										<mi>z</mi>
+									</mrow>
+								</mtd>
+							</mtr>
+						</mtable>
+						<mo>)</mo>
+					</mrow>
+					<mo>=</mo>
+					<msubsup>
+						<mrow>
+							<mo>[</mo>
+							<mo>&#x222B;</mo>
+							<mo>+</mo>
+							<mo>&#x222B;</mo>
+							<mo>]</mo>
+						</mrow>
+						<mrow>
+							<mi>x</mi>
+							<mo>=</mo>
+							<mn>0</mn>
+						</mrow>
+						<mrow>
+							<mi>x</mi>
+							<mo>=</mo>
+							<mn>1</mn>
+						</mrow>
+					</msubsup>
+					<mo>=</mo>
+					<munder>
+						<mrow>
+							<munder>
+								<mrow>
+									<mi>a</mi>
+									<mo>+</mo>
+									<mover>
+										<mrow>
+											<mover>
+												<mrow>
+													<mi>b</mi>
+													<mo>+</mo>
+													<mo>&#x2026;</mo>
+													<mo>+</mo>
+													<mi>y</mi>
+												</mrow>
+												<!--mrow-->
+												<mo>&#xFE37;</mo>
+												<!--/mrow-->
+											</mover>
+										</mrow>
+										<mrow>
+											<mn>123</mn>
+										</mrow>
+									</mover>
+									<mo>+</mo>
+									<mi>z</mi>
+								</mrow>
+								<!--mrow-->
+								<mo>&#xFE38;</mo>
+								<!--/mrow-->
+							</munder>
+						</mrow>
+						<mrow>
+							<mi>a</mi>
+							<mi>b</mi>
+							<mi>c</mi>
+						</mrow>
+					</munder>
+				</mrow>
+			</math>
+		</simpara>
+	</sect1>
+</article>

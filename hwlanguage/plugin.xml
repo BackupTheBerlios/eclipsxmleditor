@@ -10,6 +10,10 @@
       <library name="hwlanguage.jar">
          <export name="*"/>
       </library>
+      <library name="lib/mathml.jar"/>
+      <library name="lib/xalan.jar"/>
+      <library name="lib/xerces_1_4_3.jar"/>
+      <library name="lib/GIFOutputStream.jar"/>
    </runtime>
    <requires>
       <import plugin="org.eclipse.core.resources"/>
@@ -79,7 +83,7 @@
     	      name="HWL Builder">
       <builder>
          <run
-               class="de.fhflensburg.hwlanguage.project.IncrementalBuilder">
+               class="de.fhflensburg.hwlanguage.project.build.IncrementalBuilder">
          </run>
       </builder>
    </extension>

@@ -3,7 +3,6 @@ package de.fhflensburg.hwlanguage.projectwizard;
 import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 
-import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IProject;
@@ -26,6 +25,7 @@ import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
 import de.fhflensburg.hwlanguage.Constants;
 import de.fhflensburg.hwlanguage.util.MessageUtil;
 import de.fhflensburg.hwlanguage.util.PlugInUtil;
+import de.fhflensburg.hwlanguage.util.ResourceUtil;
 
 /**
  * Creates a new XM project in the Eclipse workbench.
@@ -115,9 +115,9 @@ public class ProjectWizard extends Wizard implements INewWizard {
 			IFolder srcFolder = root.getFolder(srcPath),
 				rulesFolder = root.getFolder(rulesPath),
 				publishFolder = root.getFolder(publishPath);
-			createFolderHelper(srcFolder, monitor);
-			createFolderHelper(rulesFolder, monitor);
-			createFolderHelper(publishFolder, monitor);
+			ResourceUtil.createFolderHelper(srcFolder, monitor);
+			ResourceUtil.createFolderHelper(rulesFolder, monitor);
+			ResourceUtil.createFolderHelper(publishFolder, monitor);
 			monitor.worked(10);
 			monitor.subTask(MessageUtil.getString("creatingfiles"));
 			IPath indexPath = srcPath.append("index.xml"),
@@ -146,20 +146,5 @@ public class ProjectWizard extends Wizard implements INewWizard {
 		}
 	}
 
-	/**
-	 * Helper method: it recursively creates a folder path.
-	 * @param folder
-	 * @param monitor
-	 * @throws CoreException
-	 * @see java.io.File#mkdirs()
-	 */
-	private void createFolderHelper(IFolder folder, IProgressMonitor monitor)
-		throws CoreException {
-		if (!folder.exists()) {
-			IContainer parent = folder.getParent();
-			if (parent instanceof IFolder && (!((IFolder) parent).exists()))
-				createFolderHelper((IFolder) parent, monitor);
-			folder.create(false, true, monitor);
-		}
-	}
+	
 }

@@ -1,4 +1,4 @@
-package de.fhflensburg.hwlanguage.project;
+package de.fhflensburg.hwlanguage.project.build;
 
 import java.io.IOException;
 import java.util.Map;
@@ -15,7 +15,6 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
-import org.eclipse.core.runtime.Path;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IWorkbench;
@@ -24,6 +23,7 @@ import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PlatformUI;
 
 import de.fhflensburg.hwlanguage.exception.BuildException;
+import de.fhflensburg.hwlanguage.project.Properties;
 import de.fhflensburg.hwlanguage.util.PlugInUtil;
 
 /**
@@ -74,6 +74,7 @@ public class IncrementalBuilder extends IncrementalProjectBuilder {
 					monitor = new NullProgressMonitor();
 				}
 				saveDirtyEditors();
+				
 				IResource output = doBuild(monitor,kind == FULL_BUILD);
 				output.refreshLocal(IResource.DEPTH_INFINITE, monitor);
 			}
@@ -109,12 +110,24 @@ public class IncrementalBuilder extends IncrementalProjectBuilder {
 		validate(outputFolder);
 		
 		try {
+			cleanFolder(outputFolder,monitor);
 			inputFolder.accept(new BuildVisitor(xslFile,outputFolder,inputFolder,monitor));
 		} catch (TransformerConfigurationException e1) {
 			throw new ConfigurationException("couldn't parse the Stylesheet:"+e1.getLocalizedMessage());
 		} 
 		return outputFolder;
 	}
+
+	/**
+	 * @param outputFolder
+	 */
+	private void cleanFolder(IFolder folder, IProgressMonitor monitor) throws CoreException {
+		IResource[] files = folder.members();
+		for (int i = 0; i < files.length; i++) {
+			files[i].delete(true,monitor);
+		}
+	}
+
 
 	/**
 	 * @param IResource resource

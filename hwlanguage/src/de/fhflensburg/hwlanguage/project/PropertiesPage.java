@@ -56,11 +56,12 @@ public class PropertiesPage extends PropertyPage implements SelectionListener {
 		label.setText(MessageUtil.getString("input"));
 		inputText = new Text(group, SWT.SINGLE);
 		GridData gridData = new GridData();
+		gridData.widthHint = 150;
 		gridData.horizontalAlignment = GridData.FILL;
 		gridData.grabExcessHorizontalSpace = true;
 		inputText.setLayoutData(gridData);
 		inputDialogButton = new Button(group, SWT.LEFT);
-		inputDialogButton.setText("Suchen");
+		inputDialogButton.setText(MessageUtil.getString("find"));
 		inputDialogButton.addSelectionListener(this);
 
 		label = new Label(group, SWT.RIGHT);
@@ -70,15 +71,9 @@ public class PropertiesPage extends PropertyPage implements SelectionListener {
 		outputText.setLayoutData(
 			new GridData(GridData.FILL_HORIZONTAL | GridData.GRAB_HORIZONTAL));
 		outputDialogButton = new Button(group, SWT.LEFT);
-		outputDialogButton.setText("Suchen");
+		outputDialogButton.setText(MessageUtil.getString("find"));
 		outputDialogButton.addSelectionListener(this);
-		
-		label = new Label(group, SWT.RIGHT);
-		label.setText(MessageUtil.getString("fileextension"));
-		transformedFileExtension = new Text(group, SWT.LEFT);
-		gridData = new GridData();
-		transformedFileExtension.setLayoutData(new GridData(GridData.FILL_HORIZONTAL | GridData.GRAB_HORIZONTAL));
-		
+
 		label = new Label(group, SWT.RIGHT);
 		label.setText(MessageUtil.getString("transform"));
 		transformText = new Text(group, SWT.LEFT);
@@ -87,8 +82,17 @@ public class PropertiesPage extends PropertyPage implements SelectionListener {
 		gridData.grabExcessHorizontalSpace = true;
 		transformText.setLayoutData(gridData);
 		transformDialogButton = new Button(group, SWT.LEFT);
-		transformDialogButton.setText("Suchen");
+		transformDialogButton.setText(MessageUtil.getString("find"));
 		transformDialogButton.addSelectionListener(this);
+
+		label = new Label(group, SWT.RIGHT);
+		label.setText(MessageUtil.getString("transform.fileextension"));
+		transformedFileExtension = new Text(group, SWT.LEFT);
+		gridData = new GridData();
+		transformedFileExtension.setLayoutData(
+			new GridData(GridData.FILL_HORIZONTAL | GridData.GRAB_HORIZONTAL));
+
+		new Label(group, SWT.RIGHT);
 
 		return composite;
 	}
@@ -156,7 +160,7 @@ public class PropertiesPage extends PropertyPage implements SelectionListener {
 
 	public void performDefaults() {
 		inputText.setText(Constants.DEFAULT_INPUT_DIR);
-		transformText.setText(Constants.DEFAULT_XSL_DIR);
+		transformText.setText(Constants.DEFAULT_XSL_FILE);
 		outputText.setText(Constants.DEFAULT_OUTPUT_DIR);
 		super.performDefaults();
 	}
