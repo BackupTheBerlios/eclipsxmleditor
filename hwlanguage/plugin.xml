@@ -17,6 +17,15 @@
    </requires>
    
    
+   <extension
+         point="org.eclipse.ui.perspectives">
+      <perspective
+            name="%perspectiveName"
+            icon="icons/sample.gif"
+            class="de.fhflensburg.hwlanguage.perspective.PerspectiveFactory"
+            id="de.fhflensburg.hwlanguage.perspective">
+      </perspective>
+   </extension>
    
    <extension
       point = "org.eclipse.ui.newWizards">
@@ -25,13 +34,25 @@
 	   name="%NewWizard.category">
 	</category>
  	<wizard
-	   id = "de.fhflensburg.hwlanguage.new.hwlangfile"
-       name = "%NewFileWizard.name"
-	   class="de.fhflensburg.hwlanguage.filewizard.HWLFileWizard"
-	   category="de.fhflensburg.hwlanguage.wizardcategory"
-	   icon="icons/sample.gif">
+		id = "de.fhflensburg.hwlanguage.new.hwlangfile"
+		name = "%NewFileWizard.name"
+		class="de.fhflensburg.hwlanguage.filewizard.FileWizard"
+		category="de.fhflensburg.hwlanguage.wizardcategory"
+		icon="icons/sample.gif">
     	   <description>%NewFileWizard.desc</description>
 	   <selection class="org.eclipse.core.resources.IResource"/>
+	</wizard>
+	<wizard
+		name="%NewProjectWizard.name"
+		icon="icons/sample.gif"
+		category="de.fhflensburg.hwlanguage.wizardcategory"
+		class="de.fhflensburg.hwlanguage.projectwizard.ProjectWizard"
+		project="true"
+		finalPerspective="de.fhflensburg.hwlanguage.perspective"
+		id="de.fhflensburg.hwlanguage.new.hwlangproject">
+		<description>
+		    %NewProjectWizard.desc
+		</description>
 	</wizard>
    </extension>
 

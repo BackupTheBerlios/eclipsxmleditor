@@ -18,16 +18,16 @@ import de.fhflensburg.hwlanguage.util.MessageUtil;
  *
  * 
  */
-public class HWLFileWizard extends Wizard implements INewWizard {
+public class FileWizard extends Wizard implements INewWizard {
 
 	private IStructuredSelection selection;
 	private IWorkbench workbench;
-	private HWLFileCreationPage mainPage;
+	private FileCreationPage mainPage;
 	/** (non-Javadoc)
 	 * Method declared on Wizard.
 	 */
 	public void addPages() {
-		mainPage = new HWLFileCreationPage(workbench, selection);
+		mainPage = new FileCreationPage(workbench, selection);
 		addPage(mainPage);
 	}
 	/** (non-Javadoc)

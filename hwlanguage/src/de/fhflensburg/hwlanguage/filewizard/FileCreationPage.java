@@ -18,15 +18,11 @@ import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 import de.fhflensburg.hwlanguage.util.MessageUtil;
 
 /**
- * This class is the only page of the Readme file resource creation wizard.  
- * It subclasses the standard file resource creation page class, 
- * and consequently inherits the file resource creation functionality.
- *
- * This page provides users with the choice of creating sample headings for
- * sections and subsections.  Additionally, the option is presented to open
+ * 
+ * This page provides users with the naming of the file. Additionally, the option is presented to open
  * the file immediately for editing after creation.
  */
-public class HWLFileCreationPage extends WizardNewFileCreationPage {
+public class FileCreationPage extends WizardNewFileCreationPage {
 	private IWorkbench workbench;
 
 	// widgets
@@ -35,17 +31,16 @@ public class HWLFileCreationPage extends WizardNewFileCreationPage {
 	private Pattern pattern;
 
 	/**
-	 * Creates the page for the readme creation wizard.
-	 *
+	 * 
 	 * @param workbench  the workbench on which the page should be created
 	 * @param selection  the current selection
 	 */
-	public HWLFileCreationPage(
+	public FileCreationPage(
 		IWorkbench workbench,
 		IStructuredSelection selection) {
 		super("createHWLFilePage", selection); //$NON-NLS-1$
 		this.setTitle(MessageUtil.getString("Create_HWL_File")); //$NON-NLS-1$
-		this.setDescription(MessageUtil.getString("Create_HWL_File.desc")); //$NON-NLS-1$
+		this.setDescription(MessageUtil.getString("Create_HWL_File_description")); //$NON-NLS-1$
 		this.workbench = workbench;
 	}
 	/** (non-Javadoc)
@@ -71,9 +66,9 @@ public class HWLFileCreationPage extends WizardNewFileCreationPage {
 	public boolean finish() {
 		// create the new file resource
 		IFile newFile = createNewFile();
-		if (newFile == null)
+		if (newFile == null) {
 			return false; // ie.- creation was unsuccessful
-
+		}
 		// Since the file resource was created fine, open it for editing
 		// if requested by the user
 		try {
@@ -91,11 +86,9 @@ public class HWLFileCreationPage extends WizardNewFileCreationPage {
 	}
 
 	/** 
-	 * The <code>ReadmeCreationPage</code> implementation of this
+	 * The <code>HWLFileCreationPage</code> implementation of this
 	 * <code>WizardNewFileCreationPage</code> method 
-	 * generates sample headings for sections and subsections in the
-	 * newly-created Readme file according to the selections of self's
-	 * checkbox widgets
+	 * generates a simple xml file witch referes to the HWL-dtd
 	 */
 	protected InputStream getInitialContents() {
 		return new ByteArrayInputStream(
@@ -110,7 +103,8 @@ public class HWLFileCreationPage extends WizardNewFileCreationPage {
 	
 	
 
-	/* (non-Javadoc)
+	/**
+	 * validates if the given filename matches the regexp '[a-zA-Z0-9_-]{1,}\.xml'
 	 * @see org.eclipse.ui.dialogs.WizardNewFileCreationPage#validatePage()
 	 */
 	protected boolean validatePage() {

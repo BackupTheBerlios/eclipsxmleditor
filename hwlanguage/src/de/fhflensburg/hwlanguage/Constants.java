@@ -8,7 +8,7 @@ package de.fhflensburg.hwlanguage;
 /**
  * @author user
  *
- * 
+ * Constants we need in this plug-in
  */
 public class Constants {
 	public static final String PLUGIN_ID ="de.fhflensburg.hwlanguage"; 
