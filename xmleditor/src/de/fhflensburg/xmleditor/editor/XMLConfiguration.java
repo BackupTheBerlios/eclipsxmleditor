@@ -114,6 +114,13 @@ public class XMLConfiguration extends SourceViewerConfiguration {
 					colorManager.getColor(IXMLColorConstants.XML_PROCESSOR_INSTRUCTION)));
 		reconciler.setDamager(ndr, XMLPartitionScanner.XML_ENTITY);
 		reconciler.setRepairer(ndr, XMLPartitionScanner.XML_ENTITY);
+		
+		ndr =
+					new NonRuleBasedDamagerRepairer(
+						new TextAttribute(
+							colorManager.getColor(IXMLColorConstants.XML_DECLARATION)));
+				reconciler.setDamager(ndr, XMLPartitionScanner.XML_DECLARATION);
+				reconciler.setRepairer(ndr, XMLPartitionScanner.XML_DECLARATION);
 
 		ndr =
 			new NonRuleBasedDamagerRepairer(

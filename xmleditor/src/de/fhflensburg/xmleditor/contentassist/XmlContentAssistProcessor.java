@@ -1,8 +1,6 @@
 /*
  * Created on 11.10.2003
  *
- * To change the template for this generated file go to
- * Window - Preferences - Java - Code Generation - Code and Comments
  */
 package de.fhflensburg.xmleditor.contentassist;
 
@@ -24,8 +22,6 @@ import de.fhflensburg.xmleditor.editor.partitions.XMLPartitionScanner;
 /**
  * @author user
  *
- * To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Generation - Code and Comments
  */
 public class XmlContentAssistProcessor implements IContentAssistProcessor {
 	private XmlProposalManager manager;
@@ -75,7 +71,6 @@ public class XmlContentAssistProcessor implements IContentAssistProcessor {
 			}
 			System.out.println(document.getContentType(documentOffset));
 		} catch (BadLocationException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return proposals;

@@ -1,8 +1,6 @@
 /*
  * Created on 19.10.2003
  *
- * To change the template for this generated file go to
- * Window - Preferences - Java - Code Generation - Code and Comments
  */
 package de.fhflensburg.xmleditor.editor.partitions.rules;
 
@@ -10,11 +8,11 @@ import org.eclipse.jface.text.rules.ICharacterScanner;
 import org.eclipse.jface.text.rules.IToken;
 import org.eclipse.jface.text.rules.MultiLineRule;
 
+import de.fhflensburg.xmleditor.editor.util.*;
+
 /**
  * @author user
  *
- * To change the template for this generated type comment go to
- * Window - Preferences - Java - Code Generation - Code and Comments
  */
 public class DeclarationRule extends MultiLineRule {
 
@@ -25,8 +23,10 @@ public class DeclarationRule extends MultiLineRule {
 		ICharacterScanner scanner,
 		char[] sequence,
 		boolean eofAllowed) {
+			
 		if (sequence[0] == '<') {
-			if (RuleUtil.hasCharBefore(scanner, '>', new int[] { '<' })) {
+			CharacterScannerDeco decoScanner = new CharacterScannerDeco(scanner); 
+			if (decoScanner.firstMatch(new int[] {'<','>'})=='>') {
 				int c = scanner.read();
 				if (c == '!') {
 					c = scanner.read();

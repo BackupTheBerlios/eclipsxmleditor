@@ -10,4 +10,5 @@ public interface IXMLColorConstants {
 	RGB TAG = new RGB(0, 0, 128);
 	RGB ATTR = new RGB(50, 100, 0);
 	RGB XML_PROCESSOR_INSTRUCTION = new RGB(100,100,100);
+	RGB XML_DECLARATION = new RGB(130,130,130);
 }

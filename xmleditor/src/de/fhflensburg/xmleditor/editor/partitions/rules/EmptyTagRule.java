@@ -2,6 +2,8 @@ package de.fhflensburg.xmleditor.editor.partitions.rules;
 
 import org.eclipse.jface.text.rules.*;
 
+import de.fhflensburg.xmleditor.editor.util.*;
+
 public class EmptyTagRule extends MultiLineRule {
 
 	public EmptyTagRule(IToken token) {
@@ -13,7 +15,8 @@ public class EmptyTagRule extends MultiLineRule {
 		boolean eofAllowed) {
 		int c = scanner.read();
 		if (sequence[0] == '<') {
-			if (RuleUtil.hasCharBefore(scanner, '>', new int[] { '<' })) {
+			CharacterScannerDeco decoScanner = new CharacterScannerDeco(scanner); 
+			if (decoScanner.firstMatch(new int[] {'<','>'})=='>') {
 				if (c == '?') {
 					// processing instruction - abort
 					scanner.unread();
